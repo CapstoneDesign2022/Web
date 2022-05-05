@@ -28,7 +28,7 @@ export default class Charts extends Component {
                     curve : 'straight'
                 },
                 title : {
-                    text : "Example Data",
+                    text : "Example Chart Data",
                     align : 'center'
                 },
                 grid : {
@@ -39,7 +39,11 @@ export default class Charts extends Component {
                 },
                 xaxis : {
                     categories : ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep'],
-                }
+                },
+                theme: {
+                    mode: 'dark',
+                    palette: 'palette2'
+                },
             }
         }
     }
