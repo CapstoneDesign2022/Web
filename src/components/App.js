@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Chart from './Chart';
+import Footer from './footer';
 
 function App() {
   const winsize = useWindowSize();
@@ -35,6 +36,17 @@ function App() {
       <div style={{ display: "flex" }}>
         <button
           style={{
+            backgroundColor: "#FFFFFF",
+            color: "#000000",
+            display: "inline-block",
+            padding: "5px 20px",
+            fontSize: "14px",
+            marginLeft: "auto",
+            marginRight: "20px"
+          }}
+        >Select Coin</button>
+        <button
+          style={{
             backgroundColor: "#bfd7ff",
             color: "#000000",
             display: "inline-block",
@@ -42,10 +54,11 @@ function App() {
             fontSize: "14px",
             cursor: "pointer",
             borderRadius: "6px",
-            marginLeft: "auto",
             marginRight: "7.5%"
           }}>Run Simulation</button>
       </div>
+      
+      <Footer/>
     </div>
   );
 }
