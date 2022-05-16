@@ -1,9 +1,18 @@
 import React from 'react'
 
-function SelectCoin() {
+const SelectCoin = (props) => {
   return (
-    <div>SelectCoin</div>
-  )
-}
+    <select>
+      {props.options.map((option) => (
+        <option
+          key = {option.value}
+          value = {option.value}
+        >
+          {option.name}
+        </option>
+      ))}
+    </select>
+  );
+};
 
-export default SelectCoin
+export default SelectCoin;
