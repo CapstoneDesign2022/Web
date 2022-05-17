@@ -1,18 +1,37 @@
 import ApexCharts from "react-apexcharts";
 import React, { Component } from "react";
+import BTC from '../dataFiles/BTC_data.json';
 
 export default class Charts extends Component {
     constructor(props){
         super(props);
 
+        const BTC_date = []
+        const BTC_MAL = []
+        const BTC_HL = []
+        const BTC_LL = []
+
+        for(var i = 0; i < BTC.length; i++){
+            BTC_date.push(BTC[i].Datetime);
+            BTC_MAL.push(BTC[i].KimchiMAL);
+            BTC_HL.push(BTC[i].HighLimit);
+            BTC_LL.push(BTC[i].LowLimit);
+        }
+
+        // 배열만들기 진행할 것
+        
         this.state = {
             series : [{
-                name : "Data1",
-                data : [10, 41, 35, 51, 49, 62, 69, 91, 148]
+                name : "이동평균선",
+                data : BTC_MAL
             },
             {
-                name : "Data2",
-                data : [1, 4, 15, 41, 69, 32, 39, 31, 48]
+                name : "불린저밴드 상한값",
+                data : BTC_HL
+            },
+            {
+                name : "불린저밴드 하한값",
+                data : BTC_LL
             }],
 
             options : {
@@ -38,7 +57,7 @@ export default class Charts extends Component {
                     },
                 },
                 xaxis : {
-                    categories : ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep'],
+                    categories : BTC_date,
                 },
                 theme: {
                     mode: 'dark',
