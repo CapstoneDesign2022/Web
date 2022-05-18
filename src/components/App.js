@@ -3,7 +3,7 @@ import Chart from './Chart';
 import Footer from './footer';
 import SelectCoin from './SelectCoin';
 // import { db } from './firebaseConfig';
-import { collection, getDocs } from 'firebase/firestore';
+// import { collection, getDocs } from 'firebase/firestore';
 
 const COIN_NAMES = [
   { value : "1INCH", name : "1INCH"},

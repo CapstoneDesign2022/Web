@@ -1,34 +1,24 @@
 import ApexCharts from "react-apexcharts";
 import React, { Component } from "react";
-import BTC from '../dataFiles/BTC_data.json';
+import date_prem from '../dataFiles/BTC/date_prem.json';
 
 export default class Charts extends Component {
     
     constructor(props){
         super(props);
 
-        // const BTC_MAL = BTC.map(mal => mal.KimchiMAL);
-        // const BTC_HL = BTC.map(hl => hl.HighLimit);
-        // const BTC_LL = BTC.map(ll => ll.LowLimit);
-        const BTC_MAL = []
-        const BTC_HL = []
-        const BTC_LL = []
-        const BTC_date = BTC.map(dt => dt.Datetime);
+        var Data = date_prem.map(function(element){
+            var obj = []
+            obj[element.Datetime] = element.Premium;
+            console.log(obj);
+            return obj
+        });
 
-        console.log(BTC_date);
-        
+        console.log(Data);
+
         this.state = {
             series : [{
-                name : "이동평균선",
-                data : BTC_MAL
-            },
-            {
-                name : "불린저밴드 상한값",
-                data : BTC_HL
-            },
-            {
-                name : "불린저밴드 하한값",
-                data : BTC_LL
+                data: Data
             }],
 
             options : {
@@ -54,7 +44,7 @@ export default class Charts extends Component {
                     },
                 },
                 xaxis : {
-                    categories : BTC_date,
+                    type: 'datetime'
                 },
                 theme: {
                     mode: 'dark',
