@@ -3,22 +3,19 @@ import React, { Component } from "react";
 import BTC from '../dataFiles/BTC_data.json';
 
 export default class Charts extends Component {
+    
     constructor(props){
         super(props);
 
-        const BTC_date = []
+        // const BTC_MAL = BTC.map(mal => mal.KimchiMAL);
+        // const BTC_HL = BTC.map(hl => hl.HighLimit);
+        // const BTC_LL = BTC.map(ll => ll.LowLimit);
         const BTC_MAL = []
         const BTC_HL = []
         const BTC_LL = []
+        const BTC_date = BTC.map(dt => dt.Datetime);
 
-        for(var i = 0; i < BTC.length; i++){
-            BTC_date.push(BTC[i].Datetime);
-            BTC_MAL.push(BTC[i].KimchiMAL);
-            BTC_HL.push(BTC[i].HighLimit);
-            BTC_LL.push(BTC[i].LowLimit);
-        }
-
-        // 배열만들기 진행할 것
+        console.log(BTC_date);
         
         this.state = {
             series : [{
