@@ -9,13 +9,13 @@ export default class Charts extends Component {
 
         var Data = date_prem.map(function(element){
             var obj = []
-            obj[element.Datetime] = element.Premium;
+            obj.push(element.Datetime);
+            obj.push(element.Premium);
             console.log(obj);
-            return obj
+            return obj;
         });
 
-        console.log(Data);
-
+        console.log(Data)
         this.state = {
             series : [{
                 data: Data
@@ -23,28 +23,49 @@ export default class Charts extends Component {
 
             options : {
                 chart : {
+                    type: 'area',
+                    stacked: false,
+                    height: 300,
                     zoom : {
-                        enabled : false
+                        type: 'x',
+                        enabled : true,
+                        autoScaleYaxis: true
+                    },
+                    toolbar: {
+                        autoSelected: 'zoom'
                     }
+                },
+                stroke: {
+                    colors: '#FF0000',
                 },
                 dataLabels : {
                     enabled : false
                 },
-                stroke : {
-                    curve : 'straight'
+                markers : {
+                    size: 0,
                 },
                 title : {
-                    text : "Example Chart Data",
+                    text : "BTC 김프값 Chart Data",
                     align : 'center'
                 },
-                grid : {
-                    row : {
-                        colors : ['#f3f3f3', 'transparent'],
-                        opacity : 0.5
+                yaxis:{
+                    labels: {
+                        formatter: function(val){
+                            return(val / 1000000).toFixed(0);
+                        },
+                    title: 'Price'
                     },
                 },
                 xaxis : {
                     type: 'datetime'
+                },
+                tooltip: {
+                    shared: false,
+                    y: {
+                        formatter: function (val){
+                            return(val  / 1000000).toFixed(0)
+                        },
+                    },
                 },
                 theme: {
                     mode: 'dark',
@@ -61,7 +82,6 @@ export default class Charts extends Component {
                 series={this.state.series}
                 type="line"
                 width="85%"
-                height={500}
                 align="center"
             />
         );
