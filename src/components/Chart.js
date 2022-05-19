@@ -1,29 +1,66 @@
 import ApexCharts from "react-apexcharts";
 import React, { Component } from "react";
-import date_prem from '../dataFiles/BTC/date_prem.json';
+import ETH_data from '../dataFiles/BTC/ETH_data.json';
 
 export default class Charts extends Component {
     
     constructor(props){
         super(props);
 
-        var Data = date_prem.map(function(element){
+        var date_prem = ETH_data.map(function(element){
             var obj = []
             obj.push(element.Datetime);
-            obj.push(element.Premium);
-            console.log(obj);
+            obj.push(element.KimchiPremium);
             return obj;
         });
 
-        console.log(Data)
+        var date_MAL = ETH_data.map(function(element){
+            var obj1 = []
+            obj1.push(element.Datetime);
+            obj1.push(element.KimchiMAL);
+            return obj1;
+        });
+
+        var date_HL = ETH_data.map(function(element){
+            var obj2 = []
+            obj2.push(element.Datetime);
+            obj2.push(element.HighLimit);
+            return obj2;
+        });
+
+        var date_LL = ETH_data.map(function(element){
+            var obj3 = []
+            obj3.push(element.Datetime);
+            obj3.push(element.LowLimit);
+            return obj3;
+        });
+
         this.state = {
             series : [{
-                data: Data
+                name: 'Premium 값',
+                type: 'line',
+                data: date_prem
+            },{
+                name: '이동평균선',
+                type: 'line',
+                data: date_MAL
+            },{
+                name: '블린저밴드 상한선',
+                type: 'line',
+                data: date_HL
+            },{
+                name: '블린저밴드 하한선',
+                type: 'line',
+                data: date_LL
             }],
-
+            stroke : {
+                curve: 'smooth'
+            },
             options : {
+                colors: ['#FF5A6A', '#FFBA1F', '#99AAFF','#667FFF'],
+
                 chart : {
-                    type: 'area',
+                    foreColor: '#CFDDE6',
                     stacked: false,
                     height: 300,
                     zoom : {
@@ -35,43 +72,28 @@ export default class Charts extends Component {
                         autoSelected: 'zoom'
                     }
                 },
-                stroke: {
-                    colors: '#FF0000',
-                },
                 dataLabels : {
                     enabled : false
                 },
                 markers : {
-                    size: 0,
+                    size: 0
                 },
                 title : {
                     text : "BTC 김프값 Chart Data",
                     align : 'center'
                 },
-                yaxis:{
-                    labels: {
-                        formatter: function(val){
-                            return(val / 1000000).toFixed(0);
-                        },
-                    title: 'Price'
-                    },
-                },
                 xaxis : {
                     type: 'datetime'
                 },
+                yaxis : {
+                    showAlways: true,
+                },
                 tooltip: {
-                    shared: false,
-                    y: {
-                        formatter: function (val){
-                            return(val  / 1000000).toFixed(0)
-                        },
-                    },
-                },
-                theme: {
-                    mode: 'dark',
-                    palette: 'palette2'
-                },
-            }
+                    x: {
+                        format: 'yyyy/MM/dd/HH:mm'
+                    }
+                }
+            },
         }
     }
 

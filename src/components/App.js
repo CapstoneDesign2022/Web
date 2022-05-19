@@ -102,7 +102,7 @@ function App() {
         );
       })}*/
       style={{
-        backgroundColor: '#000000',
+        backgroundColor: '#23333E',
         width: winsize.width,
         height: winsize.height,
         }}>
@@ -110,7 +110,7 @@ function App() {
         style={{
           fontSize: 36,
           fontWeight: "800",
-          color: "#9bb1ff", 
+          color: "#CFDDE6", 
           textAlign: "center", 
           paddingTop: "60px",
           paddingBottom: "40px"}}
@@ -119,7 +119,7 @@ function App() {
         style={{
           fontSize: 18,
           fontWeight: "800",
-          color: "#788bff", 
+          color: "#98A8B3", 
           textAlign: "right", 
           paddingRight: "7.5%",
           paddingBottom: "60px"}}
