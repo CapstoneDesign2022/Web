@@ -39,7 +39,7 @@ export default class Charts extends Component {
             series : [{
                 name: 'Premium 값',
                 type: 'line',
-                data: date_prem
+                data: date_prem,
             },{
                 name: '이동평균선',
                 type: 'line',
@@ -54,10 +54,10 @@ export default class Charts extends Component {
                 data: date_LL
             }],
             stroke : {
-                curve: 'smooth'
+                curve: 'smooth',
             },
             options : {
-                colors: ['#FF5A6A', '#FFBA1F', '#99AAFF','#667FFF'],
+                colors: ['#FFBA1F', '#FF5A6A', '#99AAFF','#667FFF'],
 
                 chart : {
                     foreColor: '#CFDDE6',
@@ -90,7 +90,7 @@ export default class Charts extends Component {
                 },
                 tooltip: {
                     x: {
-                        format: 'yyyy/MM/dd/HH:mm'
+                        format: 'yyyy/MM/dd HH:mm'
                     }
                 }
             },
