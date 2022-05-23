@@ -128,7 +128,16 @@ function App() {
       <Chart/>
 
       <div style={{ display:"flex", width: winsize.width }}>
-        <div style={{ width: "80%" }}></div>
+        <div style={{ width: "80%" }}/>
+        <div
+          style={{
+            fontSize: 36,
+            fontWeight: "800",
+            color: "#61ABF2", 
+            paddingRight: "7.5%",
+            width: '70%',
+            textAlign: "center"}}
+        >총 수익률 : 0.7%</div>
         <SelectCoin
           style={{
             backgroundColor: "#FFFFFF",
@@ -140,6 +149,7 @@ function App() {
             marginRight: "20px"
           }}
           options = {COIN_NAMES}
+          default = {COIN_NAMES.BTC}
         ></SelectCoin>;
         <button
           style={{
