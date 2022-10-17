@@ -64,7 +64,7 @@ export default class Charts extends Component {
                 curve: 'smooth',
             },
             options : {
-                colors: ['#FF3333', '#F9FF00', '#0BF655','#2BAF55'],
+                colors: ['#FBBA22', '#E95968', '#9BA9FF','#7C7EE4'],
 
                 chart : {
                     foreColor: '#CFDDE6',
